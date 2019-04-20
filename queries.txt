@@ -1,2 +1,5 @@
-Chart of per day jsessionid distribution by method
-index=main sourcetype=access_combined_wcookie | timechart count(JSESSIONID) by method
+1. Chart of per day jsessionid distribution by method
+    index=main sourcetype=access_combined_wcookie | timechart count(JSESSIONID) by method
+
+2. Stats of number bytes by day
+index=main sourcetype=access_combined_wcookie method=* | eval date=strftime(_time, "%Y-%m-%d") |stats sum(bytes) as bytes by date | eval mbytes=bytes/1000000 |table date, mbytes
