@@ -1,0 +1,2 @@
+Chart of per day jsessionid distribution by method
+index=main sourcetype=access_combined_wcookie | timechart count(JSESSIONID) by method
